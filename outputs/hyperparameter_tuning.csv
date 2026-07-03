@@ -1,0 +1,3 @@
+model,parameter,candidates,best_value,best_cv_f1
+Logistic Regression,C,0.1 / 1.0 / 10.0,10.0,0.982701509030195
+Multinomial Naive Bayes,alpha,0.1 / 0.5 / 1.0,0.1,0.9605012853504835

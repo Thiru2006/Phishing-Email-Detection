@@ -1,0 +1,42 @@
+
+===== Dataset Inspection (clean) =====
+Shape  : 82,075 rows x 3 columns
+Columns: ['text_combined', 'label', 'clean_text']
+
+Data types:
+text_combined      str
+label            int64
+clean_text         str
+
+Missing values per column:
+text_combined    0
+label            0
+clean_text       0
+
+Exact duplicate rows: 0
+Empty 'text_combined' entries: 0
+Duplicate 'text_combined' entries: 0
+Texts appearing under both labels: 0
+
+Email length in characters:
+  mean 1,167 | median 558 | 99th percentile 9,032 | max 20,000
+
+Content markers (% of emails containing each):
+  URL fragment ('http')       :  47.2%
+  HTML remnant ('<' and '>')  :   0.0%
+  Uppercase letters           :   0.0%
+  Digits                      :  94.3%
+
+'enron' marker rate by class in % (1 = Phishing, 0 = Legitimate):
+label
+0    17.8
+1     0.0
+
+Class distribution (1 = Phishing, 0 = Legitimate):
+label
+1    42843
+0    39232
+
+'clean_text' column checks:
+  Empty entries: 0
+  Average length: 990 characters

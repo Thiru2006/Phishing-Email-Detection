@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs and temp
+*.log
+~$*
+
+# Datasets (large - see README for download instructions)
+dataset/raw/*.csv
+dataset/processed/*.csv
+
+# Large regenerated model dumps (recreated by `python main.py`)
+models/random_forest.joblib
+models/mlp_neural_network.joblib
+
+# LaTeX build artifacts
+ieee_paper/*.aux
+ieee_paper/*.fdb_latexmk
+ieee_paper/*.fls
+ieee_paper/*.out
+ieee_paper/*.synctex.gz
+ieee_paper/*.log

@@ -1,0 +1,10 @@
+Best model: Logistic Regression
+Selection rule: highest F1 score for the phishing class on the held-out test set (16,415 emails), with accuracy as the tie-breaker. Tuned settings in play: Logistic Regression C=10.0, Naive Bayes alpha=0.1 (grids and CV scores in hyperparameter_tuning.csv).
+
+F1 ranking: Logistic Regression (0.9829) > MLP Neural Network (0.9826) > Random Forest (0.9821) > Multinomial Naive Bayes (0.9578)
+
+Logistic Regression reached accuracy 0.9822, precision 0.9808, recall 0.9851 and F1 0.9829. Out of 16,415 test emails it made 293 mistakes: 165 legitimate emails flagged as phishing (false positives) and 128 phishing emails missed (false negatives). The false negatives are the expensive ones in this domain - each is a scam reaching an inbox - so it matters that recall stays at 0.9851: the system misses about 15 in every 1,000 phishing emails.
+
+Why it performed best: it learns one weight per word and adds the evidence up in log-odds. The two email vocabularies barely overlap (the Week 2 top-word analysis found only 7 shared words in the top 20), so a linear boundary over 5,000 TF-IDF features separates them cleanly, and L2 regularisation keeps the weights small enough to generalise. The margin over the runner-up (MLP Neural Network, F1 0.9826) is 0.0003, and the gap to the weakest model (Multinomial Naive Bayes, F1 0.9578) is 0.0251.
+
+Honest caution: part of what every model learns here is corpus membership. The legitimate class draws heavily on Enron-era business mail (Week 2 found system tokens like 'ect' among its top words even after removing 'enron' itself), while the phishing class comes from scam archives with their own house style. The scores measure in-distribution separation of those sources; a mailbox with different legitimate traffic would need retraining and fresh evaluation before any of these numbers could be promised.
